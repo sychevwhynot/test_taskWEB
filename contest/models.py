@@ -6,13 +6,18 @@ class Participant(models.Model):
         "Имя",
         max_length=50,
     )
-    email = models.CharField(
+    email = models.EmailField(
         "Email",
         max_length=70,
+        unique=True
     )
     code = models.TextField(
         "Код",
         max_length=1000,
+    )
+    created_at = models.DateTimeField(
+        "Дата создания",
+        auto_now_add=True
     )
 
     def __str__(self):
